@@ -18,9 +18,12 @@ ihealth是一个康复机器人的工程，实验室内部合作开发。没钱�
 
 ## 编译
 上述第三方库下载解压完成之后，就可以编译ihealth了
-* 打开git bash 运行 `git clone git@github.com:hust-IR2/ihealth.git`克隆本工程到本地目录；
+* 用git将代码下载到本地；
 * 下载windows版本的cmake gui，[下载地址](https://cmake.org/download/)；
 * 利用cmake gui编译ihealth，这个流程在这里就不详细介绍，只提几个关键位置
   * 需要OpenCV、Eigen、Boost、TBB的路径，如果报错，自己多尝试一下，可能路径的层次不对；
   * 此外还有几个库，像NI、WKE，也要手动添加，放在ihealth文件夹里了（这个后面或许会抽出来)
   * 注意需要把动态库dll所在的文件夹设置到path环境变量中。
+
+## 注
+这是由本人(Zhang Qi)创建的comment分枝，主要是在代码里加入注释，用分析和重构代码。

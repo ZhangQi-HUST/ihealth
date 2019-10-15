@@ -1,11 +1,11 @@
 #ifndef __PUPILTRACKER_CVX_H__
 #define __PUPILTRACKER_CVX_H__
 
-#include <opencv2/core/core.hpp>
-#include <opencv2/core/core_c.h>
-#include <opencv2/imgproc/imgproc.hpp>
+#include "opencv2/core/core.hpp"
+#include "opencv2/core/core_c.h"
+#include "opencv2/imgproc/imgproc.hpp"
 
-#include <pupiltracker/utils.h>
+#include "pupiltracker/utils.h"
 
 namespace pupiltracker {
 

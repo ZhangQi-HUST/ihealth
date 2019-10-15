@@ -4,11 +4,11 @@
 #include <vector>
 #include <string>
 
-#include <boost/lexical_cast.hpp>
-#include <opencv2/core/core.hpp>
+#include "boost/lexical_cast.hpp"
+#include "opencv2/core/core.hpp"
 
-#include <pupiltracker/timer.h>
-#include <pupiltracker/ConicSection.h>
+#include "pupiltracker/timer.h"
+#include "pupiltracker/ConicSection.h"
 
 #include <fstream>
 

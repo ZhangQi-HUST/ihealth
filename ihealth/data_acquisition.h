@@ -1,7 +1,7 @@
 #pragma once
-#include <NIDAQmx.h>
+#include "NIDAQmx.h"
 
-#include <Eigen/core>
+#include "Eigen/core"
 
 class DataAcquisition {
 public:

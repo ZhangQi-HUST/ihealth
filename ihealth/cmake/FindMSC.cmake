@@ -1,4 +1,4 @@
-# Module for locating Intel's Threading Building Blocks (MSC).
+# Module for locating MSC.
 #
 # Customizable variables:
 #   MSC_ROOT_DIR
@@ -18,8 +18,8 @@
 INCLUDE (FindPackageHandleStandardArgs)
 
 FIND_PATH (MSC_ROOT_DIR
-  NAMES include/msp_cmn.h
-  PATHS ENV PATH
+  NAMES msp_cmn.h
+  PATHS "msc" ENV PATH
   DOC "MSC root directory")
 
 FIND_PATH (MSC_INCLUDE_DIR
@@ -39,9 +39,9 @@ FIND_LIBRARY (MSC_LIBRARY_DEBUG
 
 IF (MSC_LIBRARY_RELEASE AND MSC_LIBRARY_DEBUG)
   SET (MSC_LIBRARY optimized ${MSC_LIBRARY_RELEASE} debug ${MSC_LIBRARY_DEBUG}
-    CACHE DOC "MSC library")
+    CACHE STRING "MSC library")
 ELSEIF (MSC_LIBRARY_RELEASE)
-  SET (MSC_LIBRARY ${MSC_LIBRARY_RELEASE} CACHE DOC "MSC library")
+  SET (MSC_LIBRARY ${MSC_LIBRARY_RELEASE} CACHE STRING "MSC library")
 ENDIF (MSC_LIBRARY_RELEASE AND MSC_LIBRARY_DEBUG)
 
 SET (MSC_LIBRARIES ${MSC_LIBRARY})

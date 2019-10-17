@@ -1,4 +1,4 @@
-# Module for locating Intel's Threading Building Blocks (WKE).
+# Module for locating WKE.
 #
 # Customizable variables:
 #   WKE_ROOT_DIR
@@ -18,8 +18,8 @@
 INCLUDE (FindPackageHandleStandardArgs)
 
 FIND_PATH (WKE_ROOT_DIR
-  NAMES include/wke.h
-  PATHS ENV PATH
+  NAMES wke.h
+  PATHS "wke" ENV PATH
   DOC "WKE root directory")
 
 FIND_PATH (WKE_INCLUDE_DIR
@@ -39,9 +39,9 @@ FIND_LIBRARY (WKE_LIBRARY_DEBUG
 
 IF (WKE_LIBRARY_RELEASE AND WKE_LIBRARY_DEBUG)
   SET (WKE_LIBRARY optimized ${WKE_LIBRARY_RELEASE} debug ${WKE_LIBRARY_DEBUG}
-    CACHE DOC "WKE library")
+    CACHE STRING "WKE library")
 ELSEIF (WKE_LIBRARY_RELEASE)
-  SET (WKE_LIBRARY ${WKE_LIBRARY_RELEASE} CACHE DOC "WKE library")
+  SET (WKE_LIBRARY ${WKE_LIBRARY_RELEASE} CACHE STRING "WKE library")
 ENDIF (WKE_LIBRARY_RELEASE AND WKE_LIBRARY_DEBUG)
 
 SET (WKE_LIBRARIES ${WKE_LIBRARY})

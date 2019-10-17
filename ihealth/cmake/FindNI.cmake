@@ -1,4 +1,4 @@
-# Module for locating Intel's Threading Building Blocks (NI).
+# Module for locating NI.
 #
 # Customizable variables:
 #   NI_ROOT_DIR
@@ -19,7 +19,7 @@ INCLUDE (FindPackageHandleStandardArgs)
 
 FIND_PATH (NI_ROOT_DIR
   NAMES include/NIDAQmx.h
-  PATHS ENV PATH
+  PATHS "NI" ENV PATH
   DOC "NI root directory")
 
 FIND_PATH (NI_INCLUDE_DIR
@@ -41,9 +41,9 @@ FIND_LIBRARY (NI_LIBRARY_DEBUG
 
 IF (NI_LIBRARY_RELEASE AND NI_LIBRARY_DEBUG)
   SET (NI_LIBRARY optimized ${NI_LIBRARY_RELEASE} debug ${NI_LIBRARY_DEBUG}
-    CACHE DOC "NI library")
+    CACHE STRING "NI library")
 ELSEIF (NI_LIBRARY_RELEASE)
-  SET (NI_LIBRARY ${NI_LIBRARY_RELEASE} CACHE DOC "NI library")
+  SET (NI_LIBRARY ${NI_LIBRARY_RELEASE} CACHE STRING "NI library")
 ENDIF (NI_LIBRARY_RELEASE AND NI_LIBRARY_DEBUG)
 
 SET (NI_LIBRARIES ${NI_LIBRARY})

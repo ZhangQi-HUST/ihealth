@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.8)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-find_package(OpenCV REQUIRED)
-find_package (Boost REQUIRED)
-find_package(EIGEN)
-find_package(TBB)
+#find_package(OpenCV REQUIRED)
+#find_package(Boost REQUIRED)
+#find_package(EIGEN)
+#find_package(TBB)
 find_package(NI)
 find_package(PUPILTRACKER)
 find_package(APS)
@@ -13,6 +13,7 @@ find_package(MSC)
 find_package(WKE)
 find_package(NI)
 find_package(ZPLAY)
+
 include_directories(
 ${CMAKE_CURRENT_SOURCE_DIR} 
 ${CMAKE_CURRENT_SOURCE_DIR}/ATI/ATIDAQ 
@@ -21,13 +22,14 @@ ${APS_INCLUDE_DIRS}
 ${MYSQL_INCLUDE_DIRS} 
 ${APS_INCLUDE_DIRS} 
 ${MSC_INCLUDE_DIRS} 
-${WKE_INCLUDE_DIRS} 
-${OpenCV_INCLUDE_DIRS} 
-${Boost_INCLUDE_DIRS}
-${EIGEN_INCLUDE_DIRS} 
+${WKE_INCLUDE_DIRS}
 ${NI_INCLUDE_DIRS}
 ${ZPLAY_INCLUDE_DIRS}
-${TBB_INCLUDE_DIRS})
+#${OpenCV_INCLUDE_DIRS} 
+#${Boost_INCLUDE_DIRS}
+#${EIGEN_INCLUDE_DIRS}
+#${TBB_INCLUDE_DIRS})
+)
 
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} Root_src)
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/ATI/ATIDAQ ATI_src)
@@ -52,7 +54,14 @@ source_group("Source Files\\ATI" FILES ${ATI_src})
 source_group("Header Files" FILES ${Root_header})
 source_group("Header Files\\ATI" FILES ${ATI_header})
 
-target_link_libraries(ihealth duilib CommonExt ${PUPILTRACKER_LIBRARY} ${APS_LIBRARY} ${MYSQL_LIBRARY} ${MSC_LIBRARY} ${WKE_LIBRARY} ${NI_LIBRARY} ${OpenCV_LIBRARIES} 
+target_link_libraries(ihealth duilib CommonExt 
+${PUPILTRACKER_LIBRARY} 
+${APS_LIBRARY} 
+${MYSQL_LIBRARY} 
+${MSC_LIBRARY} 
+${WKE_LIBRARY} 
+${NI_LIBRARY} 
+#${OpenCV_LIBRARIES} 
 ${TBB_LIBRARY} 
 ${ZPLAY_LIBRARY} 
 )

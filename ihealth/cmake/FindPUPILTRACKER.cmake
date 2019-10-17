@@ -1,25 +1,25 @@
-# Module for locating Intel's Threading Building Blocks (APS).
+# Module for locating PUPILTRACKER.
 #
 # Customizable variables:
-#   TBB_ROOT_DIR
-#     Specifies APS's root directory.
+#   PUPILTRACKER_ROOT_DIR
+#     Specifies PUPILTRACKER's root directory.
 #
 # Read-only variables:
-#   TBB_FOUND
+#   PUPILTRACKER_FOUND
 #     Indicates whether the library has been found.
 #
-#   TBB_INCLUDE_DIRS
-#      Specifies APS's include directory.
+#   PUPILTRACKER_INCLUDE_DIRS
+#      Specifies PUPILTRACKER's include directory.
 #
-#   TBB_LIBRARIES
-#     Specifies APS libraries that should be passed to target_link_libararies.
+#   PUPILTRACKER_LIBRARIES
+#     Specifies PUPILTRACKER libraries that should be passed to target_link_libararies.
 #
 
 INCLUDE (FindPackageHandleStandardArgs)
 
 FIND_PATH (PUPILTRACKER_ROOT_DIR
   NAMES include/pupiltracker/PupilTracker.h
-  PATHS ENV PATH
+  PATHS "pupiltracker" ENV PATH
   DOC "PUPILTRACKER root directory")
 
 FIND_PATH (PUPILTRACKER_INCLUDE_DIR
@@ -41,9 +41,9 @@ FIND_LIBRARY (PUPILTRACKER_LIBRARY_DEBUG
 
 IF (PUPILTRACKER_LIBRARY_RELEASE AND PUPILTRACKER_LIBRARY_DEBUG)
   SET (PUPILTRACKER_LIBRARY optimized ${PUPILTRACKER_LIBRARY_RELEASE} debug ${PUPILTRACKER_LIBRARY_DEBUG}
-    CACHE DOC "PUPILTRACKER library")
+    CACHE STRING "PUPILTRACKER library")
 ELSEIF (PUPILTRACKER_LIBRARY_RELEASE)
-  SET (PUPILTRACKER_LIBRARY ${PUPILTRACKER_LIBRARY_RELEASE} CACHE DOC "PUPILTRACKER library")
+  SET (PUPILTRACKER_LIBRARY ${PUPILTRACKER_LIBRARY_RELEASE} CACHE STRING "PUPILTRACKER library")
 ENDIF (PUPILTRACKER_LIBRARY_RELEASE AND PUPILTRACKER_LIBRARY_DEBUG)
 
 SET (PUPILTRACKER_LIBRARIES ${PUPILTRACKER_LIBRARY})
